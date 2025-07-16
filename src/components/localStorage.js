@@ -17,6 +17,7 @@ export const getItemWithExpiry = (key) => {
     }
     const item = JSON.parse(itemStr);
     const now = new Date();
+    console.log("now:", now.getTime(), "item:", item.expiry);
 
     // Check if the item has expired
     if (now.getTime() > item.expiry) {
@@ -25,14 +26,5 @@ export const getItemWithExpiry = (key) => {
         return null;
     }
     return item.value;
-}
-
-export const removeLocalItem = (key) => {
-    const itemStr = localStorage.getItem(key);
-    // If the item doesn't exist, return null
-    if (!itemStr) {
-        return null;
-    }
-    localStorage.removeItem(key);
 }
 

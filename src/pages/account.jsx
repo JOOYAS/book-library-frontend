@@ -7,7 +7,7 @@ const UserAccount = () => {
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('token'))
-        console.log("userDAta: ", data);
+        // console.log("userDAta: ", data);
 
         if (data) setUser(data.value)
     }, [])
@@ -15,7 +15,6 @@ const UserAccount = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('token')
-        console.log("Logged out");
         navigate('/')
     };
 
